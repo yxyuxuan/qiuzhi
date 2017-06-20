@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiuzhi.dao.AdminAccountDao">
+	<resultMap id="BaseResultMap" type="com.qiuzhi.entity.AdminAccount">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="account" property="account" jdbcType="CHAR" />
+		<result column="password" property="password" jdbcType="CHAR" />
+		<result column="type" property="type" jdbcType="CHAR" />
+		
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, account, password,type
+	</sql>
+	<!-- 查询详细信息 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from t_admin
+		where id = #{id,jdbcType=INTEGER}
+		limit 0,1
+	</select>
+	
+	<select id="selectOneByAccount" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select * from t_admin
+		where account = #{account,jdbcType=VARCHAR}
+		limit 0,1
+	</select>
+	<!-- 更新密码 -->
+	<update id="updatePassword">
+		update t_admin
+		set password = #{newPassword,jdbcType=CHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<select id="selectAllAccounts" resultMap="BaseResultMap">
+		select * from t_admin
+		where type='normal'
+	</select>
+	<insert id="addAdminAccount">
+		insert into t_admin (account,password,type)
+		values(#{account,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},'normal')
+	</insert>
+	<delete id = "deleteAdminAccount">
+		delete from t_admin
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+
+</mapper>

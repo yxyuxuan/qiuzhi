@@ -1,0 +1,766 @@
+body {
+	height:100%;
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 0;
+	margin-top: auto;
+	font-family: "宋体";
+}
+
+#header {
+	word-break: keep-all; /* 不换行 */
+	white-space: nowrap; /* 不换行 */
+	font-weight: 800;
+	display: flex;
+	flex-direction: row;
+	height: 45px;
+	background-color: lightblue;
+}
+
+#header .lHeader {
+	margin: 0 auto;
+	padding-top: 4px;
+	font-size: 30px;	
+}
+
+#header .lHeader .al:hover {
+	color: black;
+}
+ #header .lHeader a {
+	color: #000000;
+	text-decoration: none;
+	display:block;
+	float:left;
+	border:0;
+}
+#header .lHeader .ar{
+	font-size:22px;
+	margin-top:8px;
+}
+#header .lHeader .ar:hover {
+	color: #00c000;
+}
+
+#header .lHeader span {
+	line-height:33px;
+	font-size:28px;
+	color: #737373;
+	display:block;
+	text-align:left;
+	float:left;
+	margin:auto 2px;
+	padding:0;
+	border:0;
+}
+
+#header .lHeader #content {
+	font-size: 23px;
+}
+ 
+#header .rHeader {
+	margin: 0 auto;
+	padding-top: 13px;
+	position: relative;
+	float: right;
+	font-size: 22px;
+}
+#header .rHeader a {
+	color: black;
+	text-decoration: none;
+	display:block;
+	float:left;
+	border:0;
+}
+#header .rHeader .appName{
+	margin-top:0;
+}
+#header .rHeader a:hover {
+	color: #00c000;
+}
+#header .rHeader span{
+	color: #636363;
+	padding:0;
+	display: block;
+	float:left;
+	vertical-align:bottom;
+	line-height:23px;
+	margin:auto 2px;
+	border:0;
+}
+
+#hidebg {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: #000;
+	width: 100%;
+	/*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+	filter: alpha(opacity = 60);
+	/*设置透明度为60%*/
+	opacity: 0.6;
+	/*非IE浏览器下设置透明度为60%*/
+	display: none;
+	/* http://www.jb51.net */
+	z-Index: 2;
+}
+
+#dl {
+	position: absolute;
+	width: 400px;
+	height: 300px;
+	top: 200px;
+	left: 30%;
+	background-color: #fff;
+	display: none;
+	cursor: pointer;
+	z-Index: 3;
+	text-align: center;
+}
+#dl img {
+	width: 15px;
+	height: 15px;
+	position: relative;
+	float: right;
+}
+#dl img:hover{
+	background-color:#ff1111;
+}
+
+#dl form {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	margin-top:15px;
+}
+#dl table{
+	margin-top:25px;
+	margin-bottom:20px;
+	margin-left:22%;
+}
+#dl table td:nth-child(1){
+	text-align:right;
+}
+#dl table td:nth-child(2){
+	height:24px;
+	text-align:left;
+	vertical-align: top;
+}
+#dl table td:nth-child(2) input{
+	height:20px;
+	width:160px;
+	margin-top:8px;	
+}
+#dl table td:nth-child(1){
+	text-align:right;
+}
+#dl table tr{
+	height:38px;
+}
+#dl form .btn {
+	margin-top: 15px;
+}
+#dl form .btn input{
+	height:22px;
+	background-color:#f7f7f7;
+	border:1px solid #00b300;
+	width:50px;
+	font-size:13px;
+}
+#dl form .btn input:nth-child(1) {
+	margin-right:25px;
+}
+#dl a{
+	margin-top:10px;
+	font-weight:600;
+	font-size:21px;
+	padding:0;
+	margin-right:0;
+}
+#dl span{
+	color:#a3a3a3;
+	padding:0;
+	vertical-align: top;
+	display: inline-block;
+	margin:-1px 0 auto 0;
+	font-size: 20px;
+	font-weight:600;
+}
+#dl .dengLu {
+	text-decoration: none;
+	color: #00c000;
+	padding:0;
+}
+
+#dl .dengLu:hover {
+	color: #00c000;
+}
+
+#dl .zhuCe {
+	text-decoration: none;
+	color: #000000;
+	padding:0;
+}
+
+#dl .zhuCe:hover {
+	color: #00c000;
+}
+
+#zc {
+	position: absolute;
+	width: 400px;
+	height: 300px;
+	top: 200px;
+	left: 30%;
+	background-color: #fff;
+	display: none;
+	cursor: pointer;
+	z-Index: 3;
+	text-align: center;
+}
+
+#zc img {
+	width: 15px;
+	height: 15px;
+	position: relative;
+	float: right;
+}
+#zc img:hover{
+	background-color:#ff1111;
+}
+#zc span{
+	color:#a3a3a3;
+	padding:0;
+	vertical-align: top;
+	display: inline-block;
+	margin:-1px 0 auto 0;
+	font-size: 20px;
+	font-weight:600;
+}
+#zc form {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	margin-top:10px;
+}
+#zc table{
+	margin:10px auto 20px 12%;
+}
+#zc table tr{
+	height:38px;
+}
+
+#zc table td:nth-child(1){
+	text-align:right;
+}
+#zc table td:nth-child(2){
+	height:24px;
+	text-align:left;
+	vertical-align: top;
+}
+#zc table td:nth-child(2) input{
+	height:20px;
+	width:160px;
+	margin-top:8px;	
+}
+#zc form .btn input{
+	width:50px;
+	height:22px;
+	background-color:#f7f7f7;
+	border:1px solid #00b300;
+	font-size:13px;
+}
+#zc form .btn {
+	margin-top: 10px;
+}
+#zc form .btn input:nth-child(1) {
+	margin-right:25px;
+}
+#zc a{
+	margin:10px 0 auto 0;;
+	font-weight:600;
+	font-size:21px;
+	padding:0;
+}
+#zc .dengLu {
+	text-decoration: none;
+	color: #000000;
+}
+#zc .dengLu:hover {
+	color: #00c000;
+}
+
+#zc .zhuCe {
+	text-decoration: none;
+	color: #00c000;
+}
+
+#zc .zhuCe:hover {
+	color: #00c000;
+}
+
+#userDl {
+	position: absolute;
+	width: 380px;
+	height: 280px;
+	top: 200px;
+	left: 30%;
+	background-color: #fff;
+	display: none;
+	cursor: pointer;
+	z-Index: 3;
+	text-align: center;
+}
+
+#userDl img {
+	width: 15px;
+	height: 15px;
+	position: relative;
+	float: right;
+}
+
+#userDl img:hover{
+	background-color:#ff1111;
+}
+#userDl form {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	margin-top:-2px;
+}
+#userDl table{
+	margin-top:12px;
+	margin-left:22%;
+}
+#userDl table tr{
+	height:40px;
+}
+#userDl table td:nth-child(1){
+	margin-bottom:20px;
+	text-align:right;
+}
+#userDl table td:nth-child(2){
+	text-align:left;
+	vertical-align: top;
+}
+#userDl table td:nth-child(2) input{
+	height:20px;
+	width:160px;
+	margin-top:8px;	
+}
+#userDl form .btn {
+	margin-top: 30px;
+	margin-left:0;
+	padding:0;
+}
+
+#userDl form .btn input:nth-child(1) {
+	margin-right:25px;
+}
+#userDl form .btn input{
+	height:22px;
+	background-color:#f7f7f7;
+	border:1px solid #00b300;
+	width:50px;
+	font-size:13px;
+}
+#userDl p{
+	margin-top:30px;
+	font-weight:600;
+	font-size:23px;
+}
+#userDl .dengLu {
+	text-decoration: none;
+	color: #00c000;
+}
+
+#userZc {
+	position: absolute;
+	width: 400px;
+	height: 300px;
+	top: 200px;
+	left: 30%;
+	background-color: #fff;
+	display: none;
+	cursor: pointer;
+	z-Index: 3;
+	text-align: center;
+}
+
+#userZc img {
+	width: 15px;
+	height: 15px;
+	position: relative;
+	float: right;
+}
+#userZc img:hover{
+	background-color:#ff1111;
+}
+#userZc form {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	margin-top:15px;
+}
+
+#userZc table{
+	margin-left:15%;
+}
+#userZc table tr{
+	height:40px;
+}
+#userZc table td:nth-child(1){
+	text-align:right;
+	margin-bottom:20px;
+}
+#userZc table td:nth-child(2){
+	height:24px;
+	text-align:left;
+	vertical-align: top;
+}
+#userZc table td:nth-child(2) input{
+	height:18px;
+	width:156px;	
+	margin-top:8px;
+}
+#userZc form .btn {
+	margin-top: 30px;
+}
+#userZc form .btn input{
+	height:22px;
+	background-color:#f7f7f7;
+	border:1px solid #00b300;
+	width:50px;
+	font-size:13px;
+}
+#userZc form .btn input:nth-child(1){
+	margin-right:25px;
+}
+#userZc p{
+	margin-top:25px;
+	font-weight:600;
+	font-size:23px;
+}
+#userZc .zhuCe {
+	text-decoration: none;
+	color: #00c000;
+}
+
+#section {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 20px auto;
+}
+
+#section .lSection {
+	min-height:600px;
+	width:135px;
+	word-break: keep-all; /* 不换行 */
+	white-space: nowrap;
+	background-color: #f8f8f8;
+}
+#section .lSection .licolor{
+	color:#00c000;
+}
+#section .lSection ul {
+	margin-left: -22px;
+}
+#section .lSection ul li:nth-child(1){
+	margin-top:25px;
+}
+#section .lSection ul li {
+	margin: 15px auto;
+	list-style-type: none;
+	width: inherit;
+}
+
+#section .lSection ul li a {
+	color: #000000;
+	text-decoration: none;
+}
+
+#section .lSection ul li a:hover {
+	color: #00c000;
+}
+#section .lSection #a1{
+	color:#00c000;
+} 
+
+#section .mSection {
+	width: 579px;
+	min-height:600px;
+	margin-right: 10px;
+	margin-left: 10px;
+	background-color: #ffffff;
+}
+
+#section .mSection .souSuo {
+	display: flex;
+	flex-direction: row;
+	margin-top:2px;
+}
+#section .mSection .souSuo .sou input {
+	font-size:15px;
+	width: 450px;
+	height: 32px;
+	outline: none;
+	border:1px solid #76bed6;
+	margin:0;
+	padding:0;
+}
+#section .mSection .souSuo .sou{
+	margin:0;
+	padding:0;
+}
+#section .mSection .souSuo .submit{
+	margin:0;
+	padding:0;
+	
+}
+#section .mSection .souSuo .submit input {
+	font-size:16px;
+	border: 0 #68abda;
+	background-color: #76bed6;
+	left: -10px;
+	height: 34px;
+	width: 65px;
+	outline: none;
+	margin:0;
+	padding:0;
+}
+
+#section .mSection .title {
+	word-break: keep-all;
+	white-space: nowrap;
+	font-size: 23px;
+	font-weight: 800;
+	margin-top: 30px;
+	margin-left:0;
+	padding-left:0;
+}
+#section .mSection #newJobs1{
+	margin-top:-5px;
+}
+#section .mSection #newJobs2{
+	margin-top:-5px;
+}
+#section .mSection #jobsList1{
+	margin-top:-5px;
+	display:none;
+}
+#section .mSection #jobsList2{
+	margin-top:-5px;
+	display:none;
+}
+
+#section .mSection .newApply table {
+	border-collapse: separate;
+	table-layout: fixed;
+	width: 560px;
+	margin-top:-10px;
+	margin-left:0;
+	padding-left:0;
+}
+
+#section .mSection .newApply table tr {
+	background-color: #f0f5fd;
+}
+
+#section .mSection .newApply table td {
+	word-break: keep-all;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align:left;
+}
+
+#section .mSection .newApply table a {
+	color: #00c000;
+	text-decoration: none;
+}
+
+#section .mSection .newApply table a:hover {
+	color: #00c000;
+}
+
+#section .mSection .newApply table td:nth-child(1) {
+	width: 205px;
+}
+
+#section .mSection .newApply table td:nth-child(2) {
+	width: 220px;
+}
+
+#section .mSection .newApply table td:nth-child(3) {
+	width: 140px;
+}
+
+
+#section .rSection {
+	word-break: keep-all;
+	white-space: nowrap;
+	display: flex;
+	flex-direction: column;
+	background-color: #f8f8f8;
+	width: 300px;
+	min-height:600px;
+}
+#section .rSection #newsDiv{
+	height:315px;
+}
+#section .rSection .title {
+	font-size: 23px;
+	font-weight: 800;
+	margin-top: 9px;
+}
+
+#section .rSection .news {
+	margin-top: -14px;	
+	margin-left:2px;
+	width:250px;
+	padding:0;
+}
+#section .rSection .news table {
+	table-layout:fixed;
+	width:250px;
+	padding:0;
+}
+#section .rSection .news table td{
+	word-break: keep-all;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align:left;
+	padding:0;
+	margin:0;
+	font-size: 15px;
+}
+#section .rSection .news table tr{
+	height:22px;
+}
+#section .rSection .news table a{	
+	color: #000000;
+	text-decoration: none;
+	padding:0;
+	margin:0;	
+}
+#section .rSection .news table a:hover {
+	color: #00c000;
+}
+#section .rSection .news table td:nth-child(1){
+	width:240px;
+	margin:0;
+}
+#section .rSection .news table td:nth-child(2) {
+	width:50px;	
+}
+#section .rSection img{
+	vertical-align: middle;
+	padding:0;
+	margin-top:-6px;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+}
+
+#section .rSection .hr{
+	width:300px;
+	margin:12px auto -3px;
+}
+/* #section .rSection .hr{
+	width:300px;
+	height:1px;
+	background-color:#cacaca;
+	margin:10px auto;
+} */
+#calendarDiv{
+	max-height:200px;
+	margin-top:10px;
+	margin-left:20px;
+}
+
+
+.calendar {
+	border: 1px solid #a6dbe8;
+	float: left;
+}
+
+.calendar input {
+	border: none;
+	text-align: center;
+	font-family: "宋体";
+	color: #000000;
+	background: #f8f8f8;
+	margin: 1px;
+}
+
+.calendar th, td {
+	text-align: center;
+	color: #000000;
+	font-family: "黑体";
+	transition: 0.2s;	
+	font-size:17px;
+}
+.calendar td:hover {
+	background: #d6d6d6;
+}
+
+#return {
+	display:none;
+ 	position:fixed;
+	bottom:85px;
+	top:71%;
+	margin-left:574px;
+} 
+
+/*友情链接*/
+#linkbox{
+    margin: 10px auto;
+    width:1050px;
+    height:auto;
+    font-size:13px;
+    margin-top:20px;
+}
+#linkbox .link{
+    font-size: 15px;
+    margin-left: 15px;
+}
+#linkbox .linkcon{
+    margin-top: -15px;
+    margin-left: 85px;
+
+}
+#linkbox .linkcon p{
+    float:left;
+    margin-top:-13px;
+}
+
+#linkbox a{
+    text-decoration: none;
+    color: #626262;
+}
+#linkbox a:hover{
+    text-decoration: underline;
+    color: green;
+}
+#linkbox p span{
+	color:#a2a2a2;
+}
+footer {
+	margin-top: 55px;
+	text-align: center;
+	
+}
+
+footer p {
+	font-size:15px;
+	color: #a7a7a7;
+}
+

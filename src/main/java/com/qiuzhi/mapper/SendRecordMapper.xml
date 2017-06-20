@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiuzhi.dao.SendRecordDao">
+	<resultMap id="BaseResultMap" type="com.qiuzhi.entity.SendRecord">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="applicantId" property="applicantid" jdbcType="INTEGER" />
+		<result column="resumeId" property="resumeid" jdbcType="INTEGER" />
+		<result column="jobId" property="jobid" jdbcType="INTEGER" />
+		<result column="companyId" property="companyid" jdbcType="INTEGER" />
+		<result column="sendTime" property="sendtime" jdbcType="TIMESTAMP" />
+		<result column="status" property="status" jdbcType="VARCHAR" />
+		<result column="applicantName" property="applicantname"
+			jdbcType="VARCHAR" />
+		<result column="jobName" property="jobname" jdbcType="VARCHAR" />
+		<result column="companyName" property="companyname" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, applicantId, resumeId, jobId, companyId, sendTime, status,
+		applicantName, jobName,
+		companyName
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from t_send_record
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from t_send_record
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.qiuzhi.entity.SendRecord">
+		insert into t_send_record (id, applicantId, resumeId,
+		jobId, companyId, sendTime,
+		status, applicantName, jobName,
+		companyName)
+		values (#{id,jdbcType=INTEGER}, #{applicantid,jdbcType=INTEGER},
+		#{resumeid,jdbcType=INTEGER},
+		#{jobid,jdbcType=INTEGER}, #{companyid,jdbcType=INTEGER}, #{sendtime,jdbcType=TIMESTAMP},
+		#{status,jdbcType=VARCHAR}, #{applicantname,jdbcType=VARCHAR},
+		#{jobname,jdbcType=VARCHAR},
+		#{companyname,jdbcType=VARCHAR})
+	</insert>
+
+	<update id="updateByPrimaryKey" parameterType="com.qiuzhi.entity.SendRecord">
+		update t_send_record
+		set applicantId = #{applicantid,jdbcType=INTEGER},
+		resumeId = #{resumeid,jdbcType=INTEGER},
+		jobId = #{jobid,jdbcType=INTEGER},
+		companyId = #{companyid,jdbcType=INTEGER},
+		sendTime = #{sendtime,jdbcType=TIMESTAMP},
+		status = #{status,jdbcType=VARCHAR},
+		applicantName = #{applicantname,jdbcType=VARCHAR},
+		jobName = #{jobname,jdbcType=VARCHAR},
+		companyName = #{companyname,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<select id="selectSendRecords" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select * from t_send_record
+		where applicantId = #{applicantid,jdbcType=INTEGER}
+		order by sendTime desc
+	</select>
+	
+	
+	<select id="receivedRecords" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select * from t_send_record
+		where companyId = #{companyid,jdbcType=INTEGER}
+		order by sendTime desc
+	</select>
+	
+	<update id="updateStatusByPrimaryKey">
+		update t_send_record
+		set status = #{status,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	
+	<delete id="deleteByApplicantid" parameterType="java.lang.Integer">
+		delete from t_send_record
+		where applicantId = #{applicantId,jdbcType=INTEGER}
+	</delete>
+
+	<delete id="deleteByCompanyid" parameterType="java.lang.Integer">
+		delete from t_send_record
+		where companyId = #{companyid,jdbcType=INTEGER}
+	</delete>
+	<delete id="deleteByJobid" parameterType="java.lang.Integer">
+		delete from t_send_record
+		where jobId = #{jobid,jdbcType=INTEGER}
+	</delete>	
+</mapper>

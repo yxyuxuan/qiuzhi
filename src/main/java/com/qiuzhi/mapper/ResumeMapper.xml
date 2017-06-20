@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiuzhi.dao.ResumeDao" >
+	<resultMap id="BaseResultMap" type="com.qiuzhi.entity.Resume" >
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="applicantId" property="applicantid" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="sex" property="sex" jdbcType="VARCHAR" />
+		<result column="age" property="age" jdbcType="INTEGER" />
+		<result column="education" property="education" jdbcType="VARCHAR" />
+		<result column="jobExperience" property="jobexperience" jdbcType="VARCHAR" />
+		<result column="projectExperience" property="projectexperience" jdbcType="VARCHAR" />
+		<result column="description" property="desc" jdbcType="VARCHAR" />
+		<result column="expectJob" property="expectjob" jdbcType="VARCHAR" />
+		<result column="jobType" property="jobtype" jdbcType="VARCHAR" />
+		<result column="expectSalary" property="expectsalary" jdbcType="INTEGER" />
+		<result column="lastUpdateTime" property="lastupdatetime" jdbcType="TIMESTAMP" />
+		<result column="phone" property="phone" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="category" property="category" jdbcType="VARCHAR"/>
+	</resultMap>
+	<sql id="Base_Column_List" >
+		id, applicantId, name, sex, age, education, jobExperience, projectExperience, description,
+		expectJob, jobType, expectSalary, lastUpdateTime,phone,email,address,category
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+		select
+		<include refid="Base_Column_List" />
+		from t_resume
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+		delete from t_resume
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.qiuzhi.entity.Resume" >
+		insert into t_resume (id, applicantId, name,
+		sex, age, education,
+		jobExperience, projectExperience, description,
+		expectJob, jobType, expectSalary,
+		lastUpdateTime,phone,email,address,category)
+		values (#{id,jdbcType=INTEGER}, #{applicantid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+		#{sex,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{education,jdbcType=VARCHAR}, 
+		#{jobexperience,jdbcType=VARCHAR}, #{projectexperience,jdbcType=VARCHAR}, #{desc,jdbcType=VARCHAR}, 
+		#{expectjob,jdbcType=VARCHAR}, #{jobtype,jdbcType=VARCHAR}, #{expectsalary,jdbcType=INTEGER}, 
+		#{lastupdatetime,jdbcType=TIMESTAMP}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR},
+		#{address,jdbcType=VARCHAR},#{category,jdbcType=VARCHAR})
+	</insert>
+	<update id="updateByPrimaryKey" parameterType="com.qiuzhi.entity.Resume" >
+		update t_resume
+		set applicantId = #{applicantid,jdbcType=INTEGER},
+		name = #{name,jdbcType=VARCHAR},
+		sex = #{sex,jdbcType=VARCHAR},
+		age = #{age,jdbcType=INTEGER},
+		education = #{education,jdbcType=VARCHAR},
+		jobExperience = #{jobexperience,jdbcType=VARCHAR},
+		projectExperience = #{projectexperience,jdbcType=VARCHAR},
+		description = #{desc,jdbcType=VARCHAR},
+		expectJob = #{expectjob,jdbcType=VARCHAR},
+		jobType = #{jobtype,jdbcType=VARCHAR},
+		expectSalary = #{expectsalary,jdbcType=INTEGER},
+		lastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+		phone = #{phone,jdbcType=VARCHAR}, 
+		email = #{email,jdbcType=VARCHAR},
+		address = #{address,jdbcType=VARCHAR},
+		category = #{category,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<select id="selectByApplicantId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+		select * from t_resume
+		where applicantId = #{applicantId,jdbcType=INTEGER}
+	</select>
+
+	<select id="selectAllResumes" resultMap="BaseResultMap" >
+		select * from t_resume order by lastUpdateTime desc
+	</select>
+
+	<select id="queryResumeByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select * from t_resume
+		where expectJob like CONCAT('%',#{expectJob},'%')
+		order by lastUpdateTime desc
+	</select>
+	<!-- 根据类别查找简历 -->
+	<select id="queryResumeByCategory" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select * from t_resume
+		where category like CONCAT('%',#{category},'%')
+		order by lastUpdateTime desc
+	</select>
+	
+	<delete id="deleteByApplicantid" parameterType="java.lang.Integer">
+		delete from t_resume
+		where applicantId = #{applicantId,jdbcType=INTEGER}
+	</delete>
+
+</mapper>

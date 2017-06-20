@@ -1,2 +1,1 @@
-# qiuzhi
-qiuzhi
+# 求职招聘系统

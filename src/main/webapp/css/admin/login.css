@@ -1,0 +1,92 @@
+html{
+    padding: 0;
+    margin: 0;
+}
+body{
+	padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+ #myCanvas {
+	position: absolute;
+	z-index: -1;
+	border: 1px;
+	background-color: rgba(217, 248, 255, 0.74);
+}
+
+#login {
+	position: absolute;
+	height: 300px;
+	width: 310px;
+	background-color: rgba(232, 253, 255, 0.41);
+	margin: 0 auto;
+	top: 21%;
+	left: 40%;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 15px;
+	border: 1px solid #CDE0FF;
+}
+
+#title {
+	font-size: 45px;
+	font-weight: 700;
+	text-align: center;
+	margin-top: 22px;
+	margin-bottom: 10px;
+}
+
+#login table {
+	margin: 25px auto;
+	color: black;
+}
+
+#login form table tr {
+	height: 50px;
+}
+
+#login form table td:nth-child(1) {
+	text-align: right;
+	font-size: 22px;
+	color: black;
+}
+
+#login form table td:nth-child(2) {
+	text-align: left;
+}
+
+#login form table td input {
+	height: 28px;
+	width: 160px;
+	border: 1px solid #cacaca;
+	font-size: 18px;
+	text-indent: 4px;
+}
+
+#login .secondtd {
+	padding-left: 10px;
+}
+
+#btn input:nth-child(2) {
+	margin-left: 20px;
+}
+
+#btn input {
+	font-size: 19px;
+	color: black;
+	background-color: rgba(205, 224, 255, 0.86);
+	width: 55px;
+	height: 25px;
+	border: 1px solid #68abe8;
+}
+
+footer {
+	position:absolute;
+    top: 92%;
+    left:40%;
+    margin:0 auto;
+}
+
+footer p {
+    color: #bfbfbf;
+}

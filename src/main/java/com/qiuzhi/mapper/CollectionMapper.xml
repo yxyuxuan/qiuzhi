@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiuzhi.dao.CollectionDao">
+	<insert id="add" parameterType="com.qiuzhi.entity.CollectionEntity">
+		insert into t_collections
+		(id,applicantId,companyId,jobId,companyName,jobName,collectionTime)
+		values	(#{id,jdbcType=INTEGER},#{applicantId,jdbcType=INTEGER},#{companyId,jdbcType=INTEGER},#{jobId,jdbcType=INTEGER},#{companyName,jdbcType=VARCHAR},#{jobName,jdbcType=VARCHAR},#{collectionTime,jdbcType=TIMESTAMP})
+	</insert>
+	<delete id="remove" parameterType="java.lang.Integer">
+		delete from t_collections
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	
+	<select id="hasCollected" resultType="com.qiuzhi.entity.CollectionEntity">
+		select * from t_collections
+		where applicantId =#{applicantId,jdbcType=INTEGER}
+		and jobId = #{jobId,jdbcType=INTEGER}
+	</select>
+	<delete id="removeByJobId" parameterType="java.lang.Integer">
+		delete from t_collections
+		where jobId = #{jobId,jdbcType=INTEGER}
+		
+	</delete>
+	
+	<select id="selectCollectionsByApplicantId" resultType="com.qiuzhi.entity.CollectionEntity" parameterType="java.lang.Integer">
+		select * from t_collections
+		where applicantId = #{applicantId,jdbcType=INTEGER}
+		order by collectionTime desc
+	</select>
+	
+</mapper>

@@ -1,0 +1,224 @@
+body {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 0;
+    font-family: "ËÎÌå";
+}
+
+#header {
+	word-break: keep-all;
+	white-space: nowrap;
+	display: flex;
+	flex-direction: row;
+	height: 45px;
+	background-color: lightblue;
+}
+#header .lHeader {
+	font-weight: 800;
+	margin: 0 auto;
+	font-size: 30px;
+}
+#header .lHeader P {
+	margin-top: 4px;
+}
+#header .rHeader {
+	margin: 0 auto;
+	padding-top: 14px;
+	position: relative;
+	float: right;
+	font-size: 22px;
+	font-weight: 600;
+}
+#header .rHeader .appName{
+	margin-top:1px;
+}
+#header .rHeader a {
+	color: #000000;
+	text-decoration: none;
+	display:block;
+	float:left;
+	border:0;
+}
+#header .rHeader a:hover {
+	color: green;
+}
+#header .rHeader span {
+	color: #636363;
+	padding:0;
+	display: block;
+	float:left;
+	text-align:left;
+	line-height:20px;
+	margin:0 auto 0 auto;
+	border:0;
+}
+
+#section{
+    position: relative;
+    margin: 0 auto;
+    width£º900px;
+}
+#section #searchjob{
+	margin: 0 auto;
+    width: 900px;
+    border:2px solid rgba(146, 216, 255, 0.4);
+    padding-bottom:15px;
+}
+#section #searchjob .firstRow{
+	font-size:14px;
+	height:28px;
+	margin:-2px auto;
+	background-image:url("../../images/firstRow.gif");
+}
+#section .firstRow table td:nth-child(1){
+	width:600px;
+	text-align:left;
+}
+#section .firstRow table td:nth-child(2){
+	width:300px;
+	text-align:right;
+}
+#section .firstRow a{
+	color:black;
+	text-decoration:none;
+}
+#section .firstRow a:hover{
+	color:blue;
+}
+
+#section .topSection div{
+    background-color: #ebf8fc;
+    height: 30px;
+    width: 900px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top:-20px;
+}
+#section .topSection div p{
+    padding-top: 4px;
+    margin-left: 5px;
+}
+#section .topSection form{
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+#section .souSuo {
+	display: flex;
+	flex-direction: row;
+	margin-top:2px;
+}
+#section .souSuo .sou input {
+	width: 450px;
+	height: 32px;
+	outline: none;
+	border:1px solid #76bed6;
+	margin:0;
+	padding:0;
+	font-size:15px;
+}
+#section .souSuo .sou{
+	margin:0;
+	padding:0;
+}
+#section .souSuo .submit{
+	margin:0;
+	padding:0;
+}
+#section .souSuo .submit input {
+	font-size:16px;
+	border: 0 #68abda;
+	background-color: #76bed6;
+	left: -10px;
+	height: 32px;
+	width: 65px;
+	outline: none;
+	margin:0;
+	padding:0;
+}
+#section .bottomSection{
+	min-height:350px;
+}
+#section .bottomSection .resumeList{
+    background-color: #ebf8fc;
+    height: 30px;
+    width: 900px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+#section .bottomSection div p{
+    padding-top: 4px;
+    margin-left: 5px;
+ }
+ 
+ #section .bottomSection .noresult{
+	font-size:24px;
+	margin-left:20px;
+}
+#section .bottomSection  table {
+    border-collapse: separate;
+    table-layout: fixed;
+    font-size: 14px;
+    width: 860px;
+    margin:30px 20px 17px;
+    border:solid #a5a5a5; 
+    border-width:1px 0px 0px 1px;   
+}
+#section .bottomSection table td {
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    border:solid #a5a5a5; 
+    border-width:0px 1px 1px 0px;
+}
+#section .bottomSection table tr:not(:nth-child(1)){
+	height:25px;
+}
+#section .bottomSection  table tr:nth-child(1){
+	height:30px;
+	font-weight:600;
+}
+#section .bottomSection  table a{
+    color:blue;
+    text-decoration:none;
+}
+#section .bottomSection  table a:hover{
+    color:blue;
+    text-decoration:underline;
+
+}
+#section .bottomSection table td:nth-child(1){
+    width: 110px;
+}
+#section .bottomSection table td:nth-child(2){
+    width: 190px;
+}
+#section .bottomSection table td:nth-child(3){
+    width: 150px;
+}
+#section .bottomSection table td:nth-child(4){
+    width: 150px;
+}
+#section .bottomSection table td:nth-child(5){
+    width: 230px;
+}
+
+#return{
+	display:none;
+ 	position:fixed;
+	bottom:85px;
+	margin-top:60%;
+	margin-left:926px;
+}
+footer {
+    margin-top: 40px;
+    text-align: center;
+}
+
+footer p {
+    color: #bfbfbf;
+}

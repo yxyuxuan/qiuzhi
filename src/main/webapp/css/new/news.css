@@ -1,0 +1,156 @@
+html {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 0;
+	font-family: "ËÎÌå";
+}
+
+#header {
+	word-break: keep-all;
+	white-space: nowrap;
+	display: flex;
+	flex-direction: row;
+	height: 45px;
+	background-color: lightblue;
+}
+
+#header .lHeader {
+	font-weight: 800;
+	margin: 0 auto;
+	font-size: 30px;
+}
+
+#header .lHeader P {
+	margin-top: 4px;
+}
+
+#header .rHeader {
+	margin: 0 auto;
+	padding-top: 14px;
+	position: relative;
+	float: right;
+	font-size: 22px;
+	font-weight: 600;
+}
+#header .rHeader .appName{
+	margin-top:0;
+}
+#header .rHeader a {
+	color: #000000;
+	text-decoration: none;
+	display:block;
+	float:left;
+	border:0;
+}
+
+#header .rHeader a:hover {
+	color: green;
+}
+
+#header .rHeader span {
+	color: #636363;
+	padding:0;
+	display: block;
+	float:left;
+	text-align:left;
+	line-height:23px;
+	margin:0 auto 0 auto;
+	border:0;
+}
+
+#section{
+	min-width£º900px;
+	margin:0 auto;
+}
+
+#section .firstRow{
+	font-size:14px;
+	height:28px;
+	margin:-2px auto;
+	background-image:url("../../images/firstRow.gif");
+}
+#section .firstRow table td:nth-child(1){
+	width:600px;
+	text-align:left;
+}
+#section .firstRow table td:nth-child(2){
+	width:300px;
+	text-align:right;
+}
+#section .firstRow a{
+	color:black;
+	text-decoration:none;
+}
+#section .firstRow a:hover{
+	color:blue;
+}
+ #news {
+    margin: 0 auto;
+    width: 900px;
+    border:2px solid rgba(146, 216, 255, 0.4);
+    } 
+
+#news .newsTitle {
+	font-size: 24px;
+    font-weight: 600;
+    text-align:center;
+    margin-top:40px;
+}
+#newsDetail{
+	display:flex;
+	flex-decoration:row; 
+	justify-content:center;
+	margin-top:-20px;
+}
+.visit{
+	/* margin-left:350px; */
+	color:#777777;
+	
+} 
+#news .newsTime {
+	margin-left:100px;
+    color:#777777;
+} 
+ .hr{
+	width:600px;
+	height:1px;
+	background-color:#688bdd;
+	margin:-15px auto 10px auto;
+}  
+
+#news .newsContent textarea{
+    text-indent: 30px;
+    text-align:justify;
+    text-justify:distribute-all-lines;
+    margin-left:4px;
+    margin-top:10px;
+    word-wrap:break-word;
+    padding-bottom: 35px;
+    width: 887px; 
+    line-height:24px;
+    border: none;
+    outline: none;
+    resize: none;
+    background-color: #ffffff;
+    font-size: 17px;
+    color:black;
+    }
+
+#return{
+	display:none;
+ 	position:fixed;
+	bottom:120px;
+	top:75%;
+	margin-left:920px;
+} 
+
+footer {
+    margin-top: 40px;
+    text-align: center; }
+footer p {
+    color: #bfbfbf; }

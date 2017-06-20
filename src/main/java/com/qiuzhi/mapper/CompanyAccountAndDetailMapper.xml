@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiuzhi.dao.CompanyAccountAndDetailDao">
+	<select id="selectAll" resultType="com.qiuzhi.entity.CompanyAccountAndDetailEntity">
+		select a.*,b.*
+		from t_companys_account as a 
+		left join t_companys_detail as b on a.id = b.id
+	</select>
+</mapper>

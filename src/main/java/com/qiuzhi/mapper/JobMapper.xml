@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiuzhi.dao.JobDao" >
+	<resultMap id="BaseResultMap" type="com.qiuzhi.entity.Job" >
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="companyid" property="companyid" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="category" property="category" jdbcType="VARCHAR" />
+		<result column="minsalary" property="minsalary" jdbcType="INTEGER" />
+		<result column="maxsalary" property="maxsalary" jdbcType="INTEGER" />
+		<result column="description" property="description" jdbcType="VARCHAR" />
+		<result column="requirement" property="requirement" jdbcType="VARCHAR" />
+		<result column="isenable" property="isenable" jdbcType="INTEGER" />
+		<result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+		<result column="lastupdatetime" property="lastupdatetime" jdbcType="TIMESTAMP" />
+		<result column="companyname" property="companyname" jdbcType="VARCHAR" />
+		<result column="educationalBackground" property="educationalBackground" jdbcType="VARCHAR" />
+		<result column="experience" property="experience" jdbcType="VARCHAR" />
+
+	</resultMap>
+	<sql id="Base_Column_List" >
+		id, companyid, name, address, category, minsalary, maxsalary, description, requirement, 
+		isenable, createtime, lastupdatetime,companyname,educationalBackground,experience
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+		select 
+		<include refid="Base_Column_List" />
+		from t_jobs
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+		delete from t_jobs
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.qiuzhi.entity.Job" >
+		insert into t_jobs (id, companyid, name, 
+		address, category, minsalary, 
+		maxsalary, description, requirement, 
+		isenable, createtime, lastupdatetime,companyname,educationalBackground,experience
+		)
+		values (#{id,jdbcType=INTEGER}, #{companyid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+		#{address,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, #{minsalary,jdbcType=INTEGER}, 
+		#{maxsalary,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, #{requirement,jdbcType=VARCHAR}, 
+		#{isenable,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{lastupdatetime,jdbcType=TIMESTAMP},
+		#{companyname,jdbcType=VARCHAR},
+		#{educationalBackground,jdbcType=VARCHAR}, #{experience,jdbcType=VARCHAR})
+	</insert>
+
+	<select id="selectJobs" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select * from t_jobs
+		where companyid = #{companyid,jdbcType=INTEGER}
+		order by createtime desc
+	</select>
+	<select id="selectAllJobs" resultMap="BaseResultMap">
+		select * from t_jobs
+		where isenable=1
+		order by createtime desc
+	</select>
+	<update id="updateStatus">
+		update t_jobs
+		set isenable =#{isenable,jdbcType=INTEGER}
+		where id = #{id,jdbcType=INTEGER} 
+	</update>  
+
+	<select id="queryJobByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select * from t_jobs
+		where name like CONCAT('%',#{name},'%')
+		and isenable=1
+		order by createtime desc
+	</select>
+
+	<!-- 根据类别查找工作 -->
+	<select id="queryJobByCategory" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select * from t_jobs
+		where category like CONCAT('%',#{category},'%')
+		and isenable = 1
+		order by createtime desc
+	</select>
+	<delete id="deleteByCompanyId" parameterType="java.lang.Integer">
+		delete from t_jobs
+		where companyid = #{companyid,jdbcType=INTEGER}
+	</delete>
+</mapper>

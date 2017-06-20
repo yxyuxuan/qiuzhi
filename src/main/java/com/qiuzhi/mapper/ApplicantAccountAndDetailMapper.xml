@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiuzhi.dao.ApplicantAccountAndDetailDao">
+	<select id="selectAll" resultType="com.qiuzhi.entity.ApplicationAccountAndDetailEntity">
+		select a.*,b.*,c.id as resumeId
+		from t_applicants_account as a 
+		left join t_applicants_detail as b on a.id = b.id
+		left join t_resume as c on a.id=c.applicantId
+	</select>
+</mapper>
